@@ -29,6 +29,7 @@ global.controltype = 0
 global.vibL = 0
 global.vibR = 0
 global.qbg = 0
+instance_create(x, y, oMWConnector)
 quitgame = 0
 reloadgame = 0
 c_id = 0
