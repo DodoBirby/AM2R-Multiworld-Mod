@@ -18,6 +18,12 @@ if (myhealth <= 0)
     flashtime = 180
     turndelay = 180
     PlaySoundMono(deathsound)
+    with (instance_create((oCharacter.x - 8), (oCharacter.y - 8), scr_itemsopen(scr_metchange(myid))))
+    {
+        visible = false
+        active = 1
+        skip = 1
+    }
     global.metdead[myid] = 1
     global.monstersleft -= 1
     global.monstersarea -= 1

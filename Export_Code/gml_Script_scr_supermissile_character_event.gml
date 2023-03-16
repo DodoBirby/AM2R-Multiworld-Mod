@@ -1,7 +1,11 @@
 if active
 {
     if (global.maxsmissiles == 0)
+    {
+        if skip
+            popup_text(get_text("Notifications", "SuperMissileTank"))
         event_inherited()
+    }
     else
     {
         itemtype = 1

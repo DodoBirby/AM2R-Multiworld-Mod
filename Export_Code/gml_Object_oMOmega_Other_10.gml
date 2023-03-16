@@ -10,6 +10,12 @@ if (myhealth <= 0)
     event_user(2)
     mus_fadeout(musOmegaFight)
     oMusicV2.bossbgm = 0
+    with (instance_create((oCharacter.x - 8), (oCharacter.y - 8), scr_itemsopen(scr_metchange(myid))))
+    {
+        visible = false
+        active = 1
+        skip = 1
+    }
     global.metdead[myid] = 1
     global.monstersleft -= 1
     global.monstersarea -= 1

@@ -1,7 +1,11 @@
 if active
 {
     if (global.maxmissiles == oControl.mod_Mstartingcount)
+    {
+        if skip
+            popup_text(get_text("Notifications", "MissileTank"))
         event_inherited()
+    }
     else
     {
         itemtype = 1
