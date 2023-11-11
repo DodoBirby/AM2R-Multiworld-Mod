@@ -2,17 +2,17 @@ draw_sprite(sprite_index, -1, x, y)
 draw_set_color(c_white)
 draw_set_font(global.fontMenuTiny)
 draw_set_alpha(1)
-if global.item[4]
+if global.inventory[4]
 {
     draw_sprite(sSubScrButton, global.hijump, (x - 28), (y - 28))
     draw_text((x - 20), ((y - 29) + oControl.subScrItemOffset), hijump)
 }
-if global.item[6]
+if global.inventory[6]
 {
     draw_sprite(sSubScrButton, global.spacejump, (x - 28), (y - 19))
     draw_text((x - 20), ((y - 20) + oControl.subScrItemOffset), space)
 }
-if global.item[7]
+if global.inventory[7]
 {
     draw_sprite(sSubScrButton, global.speedbooster, (x - 28), (y - 10))
     draw_text((x - 20), ((y - 11) + oControl.subScrItemOffset), speedbooster)

@@ -59,6 +59,12 @@ repeat (350)
     i -= 1
     global.item[i] = 0
 }
-global.item[1] = 1
+i = 15
+repeat (15)
+{
+    i -= 1
+    global.inventory[i] = 0
+}
+global.inventory[1] = 1
 reset_logs_list()
 reset_hints()

@@ -4,12 +4,12 @@ draw_set_font(global.fontMenuTiny)
 draw_set_alpha(1)
 draw_sprite(sSubScrButton, global.currentsuit == 0, (x - 28), (y + 16))
 draw_text((x - 20), ((y + 15) + oControl.subScrItemOffset), psuit)
-if global.item[5]
+if global.inventory[5]
 {
     draw_sprite(sSubScrButton, global.currentsuit == 1, (x - 28), (y + 25))
     draw_text((x - 20), ((y + 24) + oControl.subScrItemOffset), vsuit)
 }
-if global.item[9]
+if global.inventory[9]
 {
     draw_sprite(sSubScrButton, global.currentsuit == 2, (x - 28), (y + 34))
     draw_text((x - 20), ((y + 33) + oControl.subScrItemOffset), gsuit)

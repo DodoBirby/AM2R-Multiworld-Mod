@@ -4,27 +4,27 @@ draw_set_font(global.fontMenuTiny)
 draw_set_alpha(1)
 draw_sprite(sSubScrButton, global.morphball, (x - 28), (y + 16))
 draw_text((x - 20), ((y + 15) + oControl.subScrItemOffset), morph)
-if global.item[2]
+if global.inventory[2]
 {
     draw_sprite(sSubScrButton, global.spiderball, (x - 28), (y + 25))
     draw_text((x - 20), ((y + 24) + oControl.subScrItemOffset), spider)
 }
-if global.item[3]
+if global.inventory[3]
 {
     draw_sprite(sSubScrButton, global.jumpball, (x - 28), (y + 34))
     draw_text((x - 20), ((y + 33) + oControl.subScrItemOffset), spring)
 }
-if global.item[0]
+if global.inventory[0]
 {
     draw_sprite(sSubScrButton, global.bomb, (x - 28), (y + 43))
     draw_text((x - 20), ((y + 42) + oControl.subScrItemOffset), bomb)
 }
-if global.item[1]
+if global.inventory[1]
 {
     draw_sprite(sSubScrButton, global.powergrip, (x - 28), (y + 52))
     draw_text((x - 20), ((y + 51) + oControl.subScrItemOffset), pgrip)
 }
-if global.item[8]
+if global.inventory[8]
 {
     draw_sprite(sSubScrButton, global.screwattack, (x - 28), (y + 61))
     draw_text((x - 20), ((y + 60) + oControl.subScrItemOffset), sattack)

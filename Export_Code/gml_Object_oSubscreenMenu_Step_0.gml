@@ -1,35 +1,35 @@
 if (active && oControl.kDown && oControl.kDownPushedSteps == 0)
 {
     global.curropt += 1
-    if (global.curropt == 1 && global.item[5] == 0)
+    if (global.curropt == 1 && global.inventory[5] == 0)
         global.curropt += 1
-    if (global.curropt == 2 && global.item[9] == 0)
+    if (global.curropt == 2 && global.inventory[9] == 0)
         global.curropt += 1
-    if (global.curropt == 3 && global.item[10] == 0)
+    if (global.curropt == 3 && global.inventory[10] == 0)
         global.curropt += 1
-    if (global.curropt == 4 && global.item[12] == 0)
+    if (global.curropt == 4 && global.inventory[12] == 0)
         global.curropt += 1
-    if (global.curropt == 5 && global.item[13] == 0)
+    if (global.curropt == 5 && global.inventory[13] == 0)
         global.curropt += 1
-    if (global.curropt == 6 && global.item[14] == 0)
+    if (global.curropt == 6 && global.inventory[14] == 0)
         global.curropt += 1
-    if (global.curropt == 7 && global.item[11] == 0)
+    if (global.curropt == 7 && global.inventory[11] == 0)
         global.curropt += 1
-    if (global.curropt == 9 && global.item[2] == 0)
+    if (global.curropt == 9 && global.inventory[2] == 0)
         global.curropt += 1
-    if (global.curropt == 10 && global.item[3] == 0)
+    if (global.curropt == 10 && global.inventory[3] == 0)
         global.curropt += 1
-    if (global.curropt == 11 && global.item[0] == 0)
+    if (global.curropt == 11 && global.inventory[0] == 0)
         global.curropt += 1
-    if (global.curropt == 12 && global.item[1] == 0)
+    if (global.curropt == 12 && global.inventory[1] == 0)
         global.curropt += 1
-    if (global.curropt == 13 && global.item[8] == 0)
+    if (global.curropt == 13 && global.inventory[8] == 0)
         global.curropt += 1
-    if (global.curropt == 14 && global.item[4] == 0)
+    if (global.curropt == 14 && global.inventory[4] == 0)
         global.curropt += 1
-    if (global.curropt == 15 && global.item[6] == 0)
+    if (global.curropt == 15 && global.inventory[6] == 0)
         global.curropt += 1
-    if (global.curropt == 16 && global.item[7] == 0)
+    if (global.curropt == 16 && global.inventory[7] == 0)
         global.curropt += 1
     if (global.curropt > 16)
         global.curropt = 0
@@ -40,35 +40,35 @@ if (active && oControl.kUp && oControl.kUpPushedSteps == 0)
     global.curropt -= 1
     if (global.curropt < 0)
         global.curropt = 16
-    if (global.curropt == 16 && global.item[7] == 0)
+    if (global.curropt == 16 && global.inventory[7] == 0)
         global.curropt -= 1
-    if (global.curropt == 15 && global.item[6] == 0)
+    if (global.curropt == 15 && global.inventory[6] == 0)
         global.curropt -= 1
-    if (global.curropt == 14 && global.item[4] == 0)
+    if (global.curropt == 14 && global.inventory[4] == 0)
         global.curropt -= 1
-    if (global.curropt == 13 && global.item[8] == 0)
+    if (global.curropt == 13 && global.inventory[8] == 0)
         global.curropt -= 1
-    if (global.curropt == 12 && global.item[1] == 0)
+    if (global.curropt == 12 && global.inventory[1] == 0)
         global.curropt -= 1
-    if (global.curropt == 11 && global.item[0] == 0)
+    if (global.curropt == 11 && global.inventory[0] == 0)
         global.curropt -= 1
-    if (global.curropt == 10 && global.item[3] == 0)
+    if (global.curropt == 10 && global.inventory[3] == 0)
         global.curropt -= 1
-    if (global.curropt == 9 && global.item[2] == 0)
+    if (global.curropt == 9 && global.inventory[2] == 0)
         global.curropt -= 1
-    if (global.curropt == 7 && global.item[11] == 0)
+    if (global.curropt == 7 && global.inventory[11] == 0)
         global.curropt -= 1
-    if (global.curropt == 6 && global.item[14] == 0)
+    if (global.curropt == 6 && global.inventory[14] == 0)
         global.curropt -= 1
-    if (global.curropt == 5 && global.item[13] == 0)
+    if (global.curropt == 5 && global.inventory[13] == 0)
         global.curropt -= 1
-    if (global.curropt == 4 && global.item[12] == 0)
+    if (global.curropt == 4 && global.inventory[12] == 0)
         global.curropt -= 1
-    if (global.curropt == 3 && global.item[10] == 0)
+    if (global.curropt == 3 && global.inventory[10] == 0)
         global.curropt -= 1
-    if (global.curropt == 2 && global.item[9] == 0)
+    if (global.curropt == 2 && global.inventory[9] == 0)
         global.curropt -= 1
-    if (global.curropt == 1 && global.item[5] == 0)
+    if (global.curropt == 1 && global.inventory[5] == 0)
         global.curropt -= 1
     sfx_play(sndMenuMove)
 }
@@ -78,11 +78,11 @@ if (active && oControl.kRight > 0 && oControl.kRightPushedSteps == 0 && global.c
         global.curropt = 8
     else
         global.curropt = 14
-    if (global.curropt == 14 && global.item[4] == 0)
+    if (global.curropt == 14 && global.inventory[4] == 0)
         global.curropt += 1
-    if (global.curropt == 15 && global.item[6] == 0)
+    if (global.curropt == 15 && global.inventory[6] == 0)
         global.curropt += 1
-    if (global.curropt == 16 && global.item[7] == 0)
+    if (global.curropt == 16 && global.inventory[7] == 0)
         global.curropt += 1
     if (global.curropt > 16)
         global.curropt = 8
@@ -94,15 +94,15 @@ if (active && oControl.kLeft > 0 && oControl.kLeftPushedSteps == 0 && global.cur
         global.curropt = 0
     else
         global.curropt = 3
-    if (global.curropt == 3 && global.item[10] == 0)
+    if (global.curropt == 3 && global.inventory[10] == 0)
         global.curropt += 1
-    if (global.curropt == 4 && global.item[12] == 0)
+    if (global.curropt == 4 && global.inventory[12] == 0)
         global.curropt += 1
-    if (global.curropt == 5 && global.item[13] == 0)
+    if (global.curropt == 5 && global.inventory[13] == 0)
         global.curropt += 1
-    if (global.curropt == 6 && global.item[14] == 0)
+    if (global.curropt == 6 && global.inventory[14] == 0)
         global.curropt += 1
-    if (global.curropt == 7 && global.item[11] == 0)
+    if (global.curropt == 7 && global.inventory[11] == 0)
         global.curropt += 1
     if (global.curropt > 7)
         global.curropt = 0
