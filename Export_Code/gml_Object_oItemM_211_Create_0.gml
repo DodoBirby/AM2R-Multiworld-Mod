@@ -1,3 +1,3 @@
 event_inherited()
-scr_missile_create()
 itemid = 211
+scr_multiItem_Create()

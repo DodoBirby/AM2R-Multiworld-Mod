@@ -1,3 +1,3 @@
 event_inherited()
 if active
-    global.speedbooster = 1
+    scr_multiItem_Collision()

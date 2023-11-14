@@ -1,3 +1,3 @@
 event_inherited()
 if active
-    global.sbeam = 1
+    scr_multiItem_Collision()

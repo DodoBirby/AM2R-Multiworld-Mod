@@ -1,3 +1,3 @@
 event_inherited()
-scr_powerbomb_create()
 itemid = 302
+scr_multiItem_Create()

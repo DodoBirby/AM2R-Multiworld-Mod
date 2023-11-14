@@ -1,3 +1,3 @@
 event_inherited()
-scr_energytank_create()
 itemid = 157
+scr_multiItem_Create()

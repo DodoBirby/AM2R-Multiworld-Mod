@@ -1,1 +1,3 @@
-scr_energytank_character_event()
+event_inherited()
+if active
+    scr_multiItem_Collision()
