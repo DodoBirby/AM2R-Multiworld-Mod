@@ -1,4 +1,4 @@
-filename = ("save" + string((global.saveslot + 1)))
+filename = (global.savedirectory + string((global.saveslot + 1)))
 file_delete(filename)
 with (oMenuSaveSlot)
 {

@@ -8,3 +8,4 @@ itemid = 0
 text1 = ""
 text2 = ""
 skip = 0
+multiItem = -1

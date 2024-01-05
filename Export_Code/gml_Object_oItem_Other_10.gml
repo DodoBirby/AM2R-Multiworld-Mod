@@ -1,4 +1,5 @@
-global.item[itemid] = 1
+if (itemid > 0)
+    global.item[itemid] = 1
 global.itemstaken += 1
 myposx = floor((x / 320))
 myposy = floor(((y - 8) / 240))

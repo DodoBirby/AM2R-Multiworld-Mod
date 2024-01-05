@@ -2,7 +2,7 @@ var detail;
 j = 0
 repeat (3)
 {
-    filename = ("save" + string((j + 1)))
+    filename = (global.savedirectory + string((j + 1)))
     if file_exists(filename)
     {
         detail = sv6_load_details(filename)

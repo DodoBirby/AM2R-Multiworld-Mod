@@ -27,7 +27,7 @@ if (!skip)
 }
 else
 {
-    if (itemid <= 14)
+    if (multiItem <= 14)
         popup_text((text1 + " acquired"))
     sfx_play(sndMessage)
 }

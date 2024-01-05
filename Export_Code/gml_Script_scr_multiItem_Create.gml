@@ -1,4 +1,6 @@
-multiItem = GetMultiItem(itemid)
+skip = 1
+if (multiItem == -1)
+    multiItem = GetMultiItem(itemid)
 switch multiItem
 {
     case 0:
@@ -149,6 +151,10 @@ switch multiItem
             btn1_name = "Missile"
         if (global.opmslstyle == 0)
             btn1_name = "Select"
+        break
+    case 19:
+        sprite_index = sItemDNA
+        skip = 1
         break
 }
 

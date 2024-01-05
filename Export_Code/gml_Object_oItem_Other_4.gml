@@ -1,3 +1,5 @@
+if (itemid < 0)
+    exit
 if global.item[itemid]
 {
     myposx = floor((x / 320))

@@ -106,5 +106,9 @@ switch multiItem
         global.pbombs = global.maxpbombs
         global.ptanks += 1
         break
+    case 19:
+        popup_text("Metroid DNA Acquired")
+        global.dnatanks += 1
+        break
 }
 

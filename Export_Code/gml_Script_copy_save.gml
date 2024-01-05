@@ -1,5 +1,5 @@
-file1 = ("save" + string((argument0 + 1)))
-file2 = ("save" + string((argument1 + 1)))
+file1 = (global.savedirectory + string((argument0 + 1)))
+file2 = (global.savedirectory + string((argument1 + 1)))
 if file_exists(file2)
     file_delete(file2)
 file_copy(file1, file2)

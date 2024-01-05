@@ -10,8 +10,10 @@ if (myhealth <= 0)
     event_user(2)
     mus_fadeout(musOmegaFight)
     oMusicV2.bossbgm = 0
-    with (instance_create((oCharacter.x - 8), (oCharacter.y - 8), scr_itemsopen(scr_metchange(myid))))
+    with (instance_create((oCharacter.x - 8), (oCharacter.y - 8), oMetroidItem))
     {
+        multiItem = GetMultiItem((other.myid + 310))
+        itemid = -1
         visible = false
         active = 1
         skip = 1
