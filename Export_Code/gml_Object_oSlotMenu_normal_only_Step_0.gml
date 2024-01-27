@@ -14,10 +14,10 @@ if active
             global.curropt = lastitem
         sfx_play(sndMenuMove)
     }
-    if (oControl.kMenu1 && oControl.kMenu1PushedSteps == 0)
+    if (oControl.kMenu1 && oControl.kMenu1PushedSteps == 0 && instance_exists(oMWConnector))
     {
         sfx_play(sndMenuSel)
-        global.gamemode = 1
+        global.gamemode = 2
         if instance_exists(op[0])
         {
             with (op[0])

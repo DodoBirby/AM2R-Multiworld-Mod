@@ -45,6 +45,11 @@ if active
         }
         if (global.curropt == 4)
         {
+            instance_create(50, 92, oOptionsMW)
+            instance_destroy()
+        }
+        if (global.curropt == 5)
+        {
             if (instance_exists(oSS_Control) > 0)
             {
                 instance_create(50, 92, oPauseMenuOptions)

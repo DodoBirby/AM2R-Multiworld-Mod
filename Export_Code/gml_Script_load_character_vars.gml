@@ -30,6 +30,7 @@ global.stanks = 0
 global.ptanks = 0
 global.dnatanks = 0
 global.dnacount = 46
+global.seedreceived = 0
 global.lavastate = 0
 global.timeofday = 0
 i = 100
@@ -68,5 +69,11 @@ repeat (15)
     global.inventory[i] = 0
 }
 global.inventory[1] = 1
+i = 400
+repeat (400)
+{
+    i -= 1
+    global.multiItem[i] = 0
+}
 reset_logs_list()
 reset_hints()

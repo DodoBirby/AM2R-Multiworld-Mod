@@ -1,3 +1,5 @@
+if (!remoteItem)
+    exit
 if (multiItem < 15)
     global.inventory[multiItem] = 1
 switch multiItem

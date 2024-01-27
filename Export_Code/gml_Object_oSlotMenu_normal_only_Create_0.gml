@@ -6,7 +6,7 @@ h = -9
 targeth = 33
 fadein = 1
 fadeout = 0
-d0str = get_text("Title-Additions", "GameSlot_NewGame_NormalGame")
+d0str = "Multiworld"
 if (global.saveslot == 0)
 {
     x = 270

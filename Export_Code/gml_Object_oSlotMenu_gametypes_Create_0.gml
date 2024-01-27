@@ -1,14 +1,12 @@
 global.curropt = 0
-lastitem = 2
+lastitem = 0
 active = 0
 alarm[0] = 5
 h = 0
 targeth = 33
 fadein = 1
 fadeout = 0
-d0str = get_text("Title-Additions", "GameSlot_NewGame_NormalGame")
-d1str = get_text("Title-Additions", "GameSlot_NewGame_NewGamePlus")
-d2str = get_text("Title-Additions", "GameSlot_NewGame_RandomGamePlus")
+d0str = "Multiworld"
 if (global.saveslot == 0)
 {
     x = 270

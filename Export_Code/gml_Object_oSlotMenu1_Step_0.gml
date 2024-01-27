@@ -17,7 +17,7 @@ if active
     if (oControl.kMenu1 && oControl.kMenu1PushedSteps == 0)
     {
         sfx_play(sndMenuSel)
-        if (global.curropt == 0)
+        if (global.curropt == 0 && instance_exists(oMWConnector))
         {
             global.newgame = 0
             room_change(15, 0)

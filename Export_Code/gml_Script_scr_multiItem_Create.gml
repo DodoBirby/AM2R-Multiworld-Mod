@@ -156,5 +156,8 @@ switch multiItem
         sprite_index = sItemDNA
         skip = 1
         break
+    case 20:
+        sprite_index = sItemMW
+        break
 }
 

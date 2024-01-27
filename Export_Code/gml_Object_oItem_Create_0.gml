@@ -9,3 +9,4 @@ text1 = ""
 text2 = ""
 skip = 0
 multiItem = -1
+remoteItem = 0

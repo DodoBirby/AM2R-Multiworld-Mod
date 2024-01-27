@@ -399,7 +399,7 @@ if (global.classicmode == 0 && global.opshowhud)
     {
         if global.dnaenabled
         {
-            dnaremaining = (global.dnacount - global.dnatanks)
+            dnaremaining = max((global.dnacount - global.dnatanks), 0)
             draw_background(bgGUIMetCountBG2, ((xoff + 4) + widescreen_space), 4)
             draw_text(((xoff + 6) + widescreen_space), 21, to_string_lz(dnaremaining))
         }

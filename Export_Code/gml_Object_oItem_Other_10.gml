@@ -1,6 +1,15 @@
-if (itemid > 0)
+if (itemid >= 0)
+{
     global.item[itemid] = 1
-global.itemstaken += 1
+    global.itemstaken += 1
+}
+if remoteItem
+{
+    global.itemtype = itemtype
+    display_itemmsg(text1, text2, btn1_name, btn2_name)
+    instance_destroy()
+    exit
+}
 myposx = floor((x / 320))
 myposy = floor(((y - 8) / 240))
 mapposx = (myposx + global.mapoffsetx)
@@ -18,7 +27,6 @@ if visible
     fade.fadespeed = 0.1
 }
 global.itemtype = itemtype
-display_itemmsg(text1, text2, btn1_name, btn2_name)
 if (global.chozo_message_item_id == itemid)
     oControl.chozomessage++
 instance_destroy()

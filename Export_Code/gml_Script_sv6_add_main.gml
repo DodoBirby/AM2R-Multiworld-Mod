@@ -16,6 +16,7 @@ ds_list_add(list, global.lavastate)
 ds_list_add(list, global.mapmarker)
 ds_list_add(list, global.mapmarkerx)
 ds_list_add(list, global.mapmarkery)
+ds_list_add(list, global.seedreceived)
 i = 0
 repeat (36)
 {

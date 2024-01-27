@@ -81,7 +81,7 @@ if (global.lavastate == 9)
 }
 if (global.lavastate == 10)
 {
-    if (global.metdead[43] == 1 && global.metdead[44] == 1 && global.metdead[45] == 1)
+    if (global.dnatanks >= global.dnacount)
     {
         instance_create(0, 0, oBigQuake)
         global.lavastate = 11

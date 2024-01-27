@@ -27,10 +27,7 @@ if active
         {
             if (op[global.curropt].saveexists == 0)
             {
-                if (global.mod_gamebeaten == 1)
-                    instance_create(0, 0, oSlotMenu_gametypes)
-                else
-                    instance_create(0, 0, oSlotMenu_normal_only)
+                instance_create(0, 0, oSlotMenu_normal_only)
                 active = 0
             }
             else
