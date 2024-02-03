@@ -9,7 +9,7 @@ if (random(100) < argument0)
     spawnX = 0
     if (global.playerhealth == global.maxhealth && global.missiles == global.maxmissiles && global.smissiles == global.maxsmissiles)
         spawnX = irandom(1)
-    if ((global.item[0] == 0 && global.maxpbombs > 0) || oControl.mod_insanitymode == 1)
+    if ((global.inventory[0] == 0 && global.maxpbombs > 0) || oControl.mod_insanitymode == 1)
         pickup = irandom(4)
     if (pickup == 0)
     {
@@ -56,7 +56,7 @@ if (random(100) < argument0)
             else
                 instance_create(xx, yy, oSMPickup)
         }
-        else if ((global.item[0] == 0 && global.maxpbombs > 0) || oControl.mod_insanitymode == 1)
+        else if ((global.inventory[0] == 0 && global.maxpbombs > 0) || oControl.mod_insanitymode == 1)
             pickup = 4
     }
     if (pickup == 4)

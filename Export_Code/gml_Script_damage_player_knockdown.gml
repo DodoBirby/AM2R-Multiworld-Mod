@@ -7,7 +7,7 @@ if (argument3 == 0)
         damage_taken = (ceil((argument0 * 0.5)) * oControl.mod_diffmult)
     if (global.currentsuit == 2)
     {
-        if (global.item[5] == 0)
+        if (global.inventory[5] == 0)
             damage_taken = (ceil((argument0 * 0.5)) * oControl.mod_diffmult)
         else
             damage_taken = (ceil((argument0 * 0.25)) * oControl.mod_diffmult)

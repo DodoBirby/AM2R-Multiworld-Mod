@@ -256,7 +256,7 @@ if (state == 11)
                 global.playerhealth -= (ceil(200) * oControl.mod_diffmult)
             if (global.currentsuit == 2)
             {
-                if (global.item[5] == 0)
+                if (global.inventory[5] == 0)
                     global.playerhealth -= (ceil(200) * oControl.mod_diffmult)
                 else
                     global.playerhealth -= (ceil(100) * oControl.mod_diffmult)

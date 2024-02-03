@@ -1,4 +1,4 @@
-var type_event, ip, _buffer, receivedString, result, newline, itemMap, itemList, msg, returnMap, command, locationsMap, location, locationset, checkList, i, itemsList, missilecount, supercount, pbcount, etankcount, item, prevtanks;
+var type_event, ip, _buffer, receivedString, result, newline, itemMap, itemList, msg, returnMap, command, locationsMap, location, locationset, checkList, i, itemsList, missilecount, supercount, pbcount, etankcount, item, prevtanks, file;
 type_event = ds_map_find_value(async_load, "type")
 ip = ds_map_find_value(async_load, "ip")
 switch type_event
@@ -65,7 +65,10 @@ switch type_event
                     global.dnatanks++
             }
             if (prevtanks != global.dnatanks)
+            {
+                check_areaclear()
                 sfx_play(sndMessage)
+            }
             if (etankcount != global.etanks)
             {
                 sfx_play(sndMessage)
@@ -100,10 +103,7 @@ switch type_event
         for (i = 0; i < 350; i++)
         {
             if (global.item[i] == 1)
-            {
                 ds_list_add(checkList, i)
-                popup_text("Item")
-            }
         }
         for (i = 0; i < 46; i++)
         {

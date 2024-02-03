@@ -12,7 +12,7 @@ if (global.event[203] > 0)
         alarm[0] = 1
     }
 }
-if (global.item[0] == 0 && (global.ptanks == 0 || (global.ptanks == 1 && global.event[203] > 0 && global.event[203] < 9)))
+if (global.inventory[0] == 0 && (global.ptanks == 0 || (global.ptanks == 1 && global.event[203] > 0 && global.event[203] < 9)))
 {
     with (130658)
         instance_destroy()

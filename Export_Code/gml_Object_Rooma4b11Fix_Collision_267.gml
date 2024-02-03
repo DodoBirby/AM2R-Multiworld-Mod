@@ -1,4 +1,4 @@
-if (global.item[7] == 0)
+if (global.inventory[7] == 0)
 {
     with (130718)
         instance_destroy()

@@ -1,7 +1,7 @@
 var i;
 canbeX = 1
 hp = global.mod_serrisHealth
-if (global.item[11] == 0)
+if (global.inventory[11] == 0)
     hp *= 1.5
 maxhp = hp
 damage = global.mod_serrisDamage

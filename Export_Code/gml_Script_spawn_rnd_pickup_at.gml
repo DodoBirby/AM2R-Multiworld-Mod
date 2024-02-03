@@ -52,7 +52,7 @@ if (random(100) <= argument2)
             else
                 instance_create(argument0, argument1, oSMPickup)
         }
-        else if ((global.item[0] == 0 && global.maxpbombs > 0) || oControl.mod_insanitymode == 1)
+        else if ((global.inventory[0] == 0 && global.maxpbombs > 0) || oControl.mod_insanitymode == 1)
             pickup = 4
     }
     if (sprite_index != sQueenProjFrozen && instance_exists(xParasite) && oControl.mod_fusion == 1)

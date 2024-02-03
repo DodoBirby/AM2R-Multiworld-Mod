@@ -8,7 +8,7 @@ global.objdeactivate = 0
 SoundFX_Preset(2)
 if (oControl.mod_randomgamebool == 1)
 {
-    if (oControl.mod_septoggs_bombjumps_easy == 0 && global.item[0] == 1)
+    if (oControl.mod_septoggs_bombjumps_easy == 0 && global.inventory[0] == 1)
     {
         with (121234)
             instance_destroy()
@@ -17,7 +17,7 @@ if (oControl.mod_randomgamebool == 1)
         with (121236)
             instance_destroy()
     }
-    else if (global.item[2] == 1 || global.item[6] == 1 || global.item[4] == 1)
+    else if (global.inventory[2] == 1 || global.inventory[6] == 1 || global.inventory[4] == 1)
     {
         with (121234)
             instance_destroy()

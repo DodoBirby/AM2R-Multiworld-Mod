@@ -1,4 +1,4 @@
-var jump_vel, splash;
+var jump_vel, splash, statetimelessthan2, statetimelessthan4;
 if global.enablecontrol
     chStepControl()
 if global.movingobj
@@ -347,10 +347,12 @@ if platformCharacterIs(IN_AIR)
     }
     if (yVel < 0 && state == AIRBALL)
     {
+        statetimelessthan2 = statetime < 2
+        statetimelessthan4 = statetime < 4
         if (isCollisionUpRight() == 1 && kRight == 0)
-            x -= ((1 + statetime) < (2 + statetime)) < 4
+            x -= ((1 + statetimelessthan2) + statetimelessthan4)
         if (isCollisionUpLeft() == 1 && kLeft == 0)
-            x += ((1 + statetime) < (2 + statetime)) < 4
+            x += ((1 + statetimelessthan2) + statetimelessthan4)
     }
     if (vjump == 0 && dash == 0 && state != AIRBALL)
     {
@@ -2138,7 +2140,7 @@ if (state == GRABBEDGAMMA)
         global.playerhealth -= (global.mod_grabbedgammaVS * oControl.mod_diffmult)
     if (global.currentsuit == 2)
     {
-        if (global.item[5] == 0)
+        if (global.inventory[5] == 0)
             global.playerhealth -= (global.mod_grabbedgammaVS * oControl.mod_diffmult)
         else
             global.playerhealth -= (global.mod_grabbedgammaGS * oControl.mod_diffmult)
@@ -2946,14 +2948,14 @@ if (monster_drain > 0)
         global.playerhealth -= (global.mod_monstersdrainVS * 4)
     if (global.currentsuit == 2 && oControl.mod_monstersextreme == 0)
     {
-        if (global.item[5] == 0)
+        if (global.inventory[5] == 0)
             global.playerhealth -= (global.mod_monstersdrainVS * oControl.mod_diffmult)
         else
             global.playerhealth -= (global.mod_monstersdrainGS * oControl.mod_diffmult)
     }
     else if (global.currentsuit == 2 && oControl.mod_monstersextreme != 0)
     {
-        if (global.item[5] == 0)
+        if (global.inventory[5] == 0)
             global.playerhealth -= (global.mod_monstersdrainVS * 4)
         else
             global.playerhealth -= (global.mod_monstersdrainGS * 4)

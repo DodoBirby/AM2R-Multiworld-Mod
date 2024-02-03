@@ -12,7 +12,7 @@ if (global.event[203] > 0)
         alarm[0] = 1
     }
 }
-if (oControl.mod_randomgamebool == 1 && global.item[7] == 0)
+if (oControl.mod_randomgamebool == 1 && global.inventory[7] == 0)
 {
     with (131290)
         instance_destroy()

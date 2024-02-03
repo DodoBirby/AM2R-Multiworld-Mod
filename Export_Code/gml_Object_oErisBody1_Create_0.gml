@@ -1,7 +1,7 @@
 canbeX = 1
 hp = global.mod_serrisHbody
 damage = global.mod_serrisDamage
-if (global.item[11] == 0)
+if (global.inventory[11] == 0)
     state = 2
 else
     state = 0

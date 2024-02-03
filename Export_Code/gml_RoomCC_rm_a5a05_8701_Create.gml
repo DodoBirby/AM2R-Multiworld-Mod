@@ -5,7 +5,7 @@ if (oControl.mod_randomgamebool == 1 && oControl.mod_previous_room == 300)
 }
 else
     xstart = -500
-if (global.item[9] == 1)
+if (global.inventory[9] == 1)
     lift = 400
 else
     lift = 75
