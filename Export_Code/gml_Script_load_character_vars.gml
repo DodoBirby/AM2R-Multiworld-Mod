@@ -31,6 +31,7 @@ global.ptanks = 0
 global.dnatanks = 0
 global.dnacount = 46
 global.seedreceived = 0
+global.mwcompleted = 0
 global.lavastate = 0
 global.timeofday = 0
 i = 100

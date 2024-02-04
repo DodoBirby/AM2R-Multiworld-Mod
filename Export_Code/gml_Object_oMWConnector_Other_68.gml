@@ -113,6 +113,7 @@ switch type_event
         ds_map_add_list(returnMap, "Items", checkList)
         ds_map_add(returnMap, "SlotName", global.slotName)
         ds_map_add(returnMap, "SeedReceived", global.seedreceived)
+        ds_map_add(returnMap, "GameCompleted", global.mwcompleted)
         buffer = buffer_create(1024, buffer_grow, 1)
         buffer_seek(buffer, buffer_seek_start, 0)
         buffer_write(buffer, buffer_text, json_encode(returnMap))

@@ -34,6 +34,7 @@ global.inventory[14] = 0
 global.savedirectory = (working_directory + "/multiworld/save")
 global.dnaenabled = 1
 global.seedreceived = 0
+global.mwcompleted = 0
 global.slotName = ""
 quitgame = 0
 reloadgame = 0

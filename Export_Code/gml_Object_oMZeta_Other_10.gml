@@ -24,14 +24,6 @@ if (myhealth <= 0)
         instance_destroy()
     mus_fadeout(musZetaFight)
     oMusicV2.bossbgm = 0
-    with (instance_create((oCharacter.x - 8), (oCharacter.y - 8), oMetroidItem))
-    {
-        multiItem = GetMultiItem((other.myid + 310))
-        itemid = -1
-        visible = false
-        active = 1
-        skip = 1
-    }
     global.metdead[myid] = 1
     global.monstersleft -= 1
     global.monstersarea -= 1

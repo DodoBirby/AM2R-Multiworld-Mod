@@ -15,12 +15,7 @@ if (oControl.mod_fusion == 0)
 {
     temp_randitem = scr_itemsopen(oControl.mod_jumpball)
     if (global.item[oControl.mod_jumpball] == 0)
-    {
-        if (temp_randitem == oItemJumpBall)
-            instance_create(x, (y - 16), oJumpBallAppear)
-        else
-            instance_create(x, (y - 16), temp_randitem)
-    }
+        instance_create(x, (y - 16), temp_randitem)
     with (oDoor)
         event_user(3)
     spawn_many_powerups(112, 96, 96, 64)
