@@ -115,24 +115,32 @@ switch type_event
             {
                 receivedanything = 1
                 global.equiptraptimer += (1800 * (equiptrapcount - global.equiptraps))
+                popup_text("Suit Malfunction")
             }
             if ((tosstrapcount - global.tosstraps) > 0)
             {
+                popup_text("TOSS Inbound")
                 receivedanything = 1
                 global.tossforce += ((tosstrapcount - global.tosstraps) * 10)
                 for (i = 0; i < (tosstrapcount - global.tosstraps); i++)
-                    global.tosstraptimer += irandom_range(10, 40)
+                    global.tosstraptimer += irandom_range(600, 2400)
             }
             if ((shorttrapcount - global.shorttraps) > 0)
             {
                 receivedanything = 1
                 global.shorttraptimer += (1800 * (shorttrapcount - global.shorttraps))
+                popup_text("Beam Energy Low")
             }
             if ((emptrapcount - global.emptraps) > 0)
             {
                 receivedanything = 1
                 global.emptraptimer += (1800 * (emptrapcount - global.emptraps))
+                popup_text("Weapon Systems Disabled")
             }
+            global.equiptraps = equiptrapcount
+            global.tosstraps = tosstrapcount
+            global.shorttraps = shorttrapcount
+            global.emptraps = emptrapcount
             if receivedanything
                 sfx_play(sndMessage)
         }

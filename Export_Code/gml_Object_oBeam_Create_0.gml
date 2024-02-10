@@ -7,4 +7,4 @@ dohit = 1
 smissile = 0
 lifetime = 10000
 if (global.shorttraptimer > 0)
-    lifetime = 20
+    lifetime = 10
