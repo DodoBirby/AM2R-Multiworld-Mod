@@ -119,8 +119,7 @@ switch type_event
             if ((tosstrapcount - global.tosstraps) > 0)
             {
                 receivedanything = 1
-                global.tosstraptimer = 0
-                global.tossforce = ((tosstrapcount - global.tosstraps) * 10)
+                global.tossforce += ((tosstrapcount - global.tosstraps) * 10)
                 for (i = 0; i < (tosstrapcount - global.tosstraps); i++)
                     global.tosstraptimer += irandom_range(10, 40)
             }

@@ -3309,6 +3309,7 @@ if (state != IDLE && state != SAVING && state != SAVINGFX && state != SAVINGSHIP
         {
             damage_player_knockdown(0, choose(-1, 1), 0, 0, global.tossforce)
             onfire = 60
+            global.tossforce = 0
             expl = instance_create(x, y, oExplosionSmoke)
             expl.width = 64
             expl.height = 112
