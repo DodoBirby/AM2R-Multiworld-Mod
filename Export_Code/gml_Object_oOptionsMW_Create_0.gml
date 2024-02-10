@@ -13,7 +13,7 @@ repeat (4)
 timer = 0
 event_user(0)
 tip[0] = "Slot name for MW server"
-tip[1] = "Password for MW server (Not Implemented yet)"
+tip[1] = "Password for MW server"
 tip[2] = "Connect to MW python client"
 tip[3] = get_text("GlobalOptions", "ExitMain_Tip")
 global.tiptext = tip[global.curropt]

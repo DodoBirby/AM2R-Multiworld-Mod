@@ -2,6 +2,7 @@ if (itemid >= 0)
 {
     global.item[itemid] = 1
     global.itemstaken += 1
+    sfx_play(sndMessage)
 }
 if remoteItem
 {

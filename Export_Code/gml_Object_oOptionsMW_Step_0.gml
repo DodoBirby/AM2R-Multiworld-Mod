@@ -25,6 +25,13 @@ if active
             editing = 1
             editingoption = 0
         }
+        if (global.curropt == 1)
+        {
+            sfx_play(sndMenuSel)
+            editing = 1
+            editingoption = 1
+            keyboard_string = global.slotPass
+        }
         if (global.curropt == 2)
         {
             sfx_play(sndMenuSel)
@@ -44,6 +51,11 @@ if active
         {
             global.slotName = keyboard_string
             op[(editingoption + 1)].optext = global.slotName
+        }
+        if (global.curropt == 1)
+        {
+            global.slotPass = keyboard_string
+            op[(editingoption + 1)].optext = global.slotPass
         }
         if keyboard_check_pressed(vk_return)
             editing = 0

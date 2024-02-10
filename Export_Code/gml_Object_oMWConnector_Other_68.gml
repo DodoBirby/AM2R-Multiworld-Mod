@@ -1,4 +1,4 @@
-var type_event, ip, _buffer, receivedString, result, newline, itemMap, itemList, msg, returnMap, command, locationsMap, location, locationset, checkList, i, itemsList, missilecount, supercount, pbcount, etankcount, item, prevtanks, file;
+var type_event, ip, _buffer, receivedString, result, newline, itemMap, itemList, msg, returnMap, command, locationsMap, location, locationset, checkList, i, itemsList, missilecount, supercount, pbcount, etankcount, item, prevtanks, file, receivedanything, equiptrapcount, tosstrapcount, shorttrapcount, emptrapcount;
 type_event = ds_map_find_value(async_load, "type")
 ip = ds_map_find_value(async_load, "ip")
 switch type_event
@@ -31,10 +31,15 @@ switch type_event
         }
         else if (command == "items" && instance_exists(oCharacter))
         {
+            receivedanything = 0
             missilecount = 0
             supercount = 0
             pbcount = 0
             etankcount = 0
+            equiptrapcount = 0
+            tosstrapcount = 0
+            shorttrapcount = 0
+            emptrapcount = 0
             prevtanks = global.dnatanks
             global.dnatanks = 0
             itemsList = ds_map_find_value(itemMap, "items")
@@ -52,6 +57,7 @@ switch type_event
                         active = 1
                         skip = 1
                     }
+                    receivedanything = 1
                 }
                 else if (item == 15)
                     missilecount++
@@ -63,40 +69,73 @@ switch type_event
                     pbcount++
                 else if (item == 19)
                     global.dnatanks++
+                else if (item == 21)
+                    equiptrapcount++
+                else if (item == 22)
+                    tosstrapcount++
+                else if (item == 23)
+                    shorttrapcount++
+                else if (item == 24)
+                    emptrapcount++
             }
             if (prevtanks != global.dnatanks)
             {
+                receivedanything = 1
                 check_areaclear()
-                sfx_play(sndMessage)
             }
             if (etankcount != global.etanks)
             {
-                sfx_play(sndMessage)
+                receivedanything = 1
                 global.etanks = etankcount
                 global.maxhealth = (99 + ((global.etanks * 100) * oControl.mod_etankhealthmult))
                 global.playerhealth = global.maxhealth
             }
             if (missilecount != global.mtanks)
             {
-                sfx_play(sndMessage)
+                receivedanything = 1
                 global.mtanks = missilecount
                 global.maxmissiles = (oControl.mod_Mstartingcount + (global.mtanks * 5))
                 global.missiles = global.maxmissiles
             }
             if (supercount != global.stanks)
             {
-                sfx_play(sndMessage)
+                receivedanything = 1
                 global.stanks = supercount
                 global.maxsmissiles = (global.stanks * 2)
                 global.smissiles = global.maxsmissiles
             }
             if (pbcount != global.ptanks)
             {
-                sfx_play(sndMessage)
+                receivedanything = 1
                 global.ptanks = pbcount
                 global.maxpbombs = (global.ptanks * 2)
                 global.pbombs = global.maxpbombs
             }
+            if ((equiptrapcount - global.equiptraps) > 0)
+            {
+                receivedanything = 1
+                global.equiptraptimer = (1800 * (equiptrapcount - global.equiptraps))
+            }
+            if ((tosstrapcount - global.tosstraps) > 0)
+            {
+                receivedanything = 1
+                global.tosstraptimer = 0
+                global.tossforce = ((tosstrapcount - global.tosstraps) * 10)
+                for (i = 0; i < (tosstrapcount - global.tosstraps); i++)
+                    global.tosstraptimer += irandom_range(10, 40)
+            }
+            if ((shorttrapcount - global.shorttraps) > 0)
+            {
+                receivedanything = 1
+                global.shorttraptimer = (1800 * (shorttrapcount - global.shorttraps))
+            }
+            if ((emptrapcount - global.emptraps) > 0)
+            {
+                receivedanything = 1
+                global.emptraptimer = (1800 * (emptrapcount - global.emptraps))
+            }
+            if receivedanything
+                sfx_play(sndMessage)
         }
         returnMap = ds_map_create()
         checkList = ds_list_create()
@@ -112,6 +151,7 @@ switch type_event
         }
         ds_map_add_list(returnMap, "Items", checkList)
         ds_map_add(returnMap, "SlotName", global.slotName)
+        ds_map_add(returnMap, "SlotPass", global.slotPass)
         ds_map_add(returnMap, "SeedReceived", global.seedreceived)
         ds_map_add(returnMap, "GameCompleted", global.mwcompleted)
         buffer = buffer_create(1024, buffer_grow, 1)

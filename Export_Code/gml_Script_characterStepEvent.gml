@@ -1,4 +1,4 @@
-var jump_vel, splash, statetimelessthan2, statetimelessthan4;
+var jump_vel, splash, statetimelessthan2, statetimelessthan4, expl, deb;
 if global.enablecontrol
     chStepControl()
 if global.movingobj
@@ -3286,4 +3286,67 @@ if (ballbounce > 0)
     ballbounce -= 1
 statetime += 1
 if (state != IDLE && state != SAVING && state != SAVINGFX && state != SAVINGSHIP && state != SAVINGSHIPFX)
+{
     global.gametime += 1
+    if (global.equiptraptimer > 0)
+    {
+        global.equiptraptimer--
+        global.currentsuit = 0
+        global.morphball = 0
+        global.jumpball = 0
+        global.powergrip = 0
+        global.spacejump = 0
+        global.screwattack = 0
+        global.hijump = 0
+        global.spiderball = 0
+        global.speedbooster = 0
+        global.bomb = 0
+    }
+    if (global.tosstraptimer > 0)
+    {
+        global.tosstraptimer--
+        if (global.tosstraptimer == 0)
+        {
+            damage_player_knockdown(0, choose(-1, 1), 0, 0, global.tossforce)
+            onfire = 60
+            expl = instance_create(x, y, oExplosionSmoke)
+            expl.width = 64
+            expl.height = 112
+            expl.expl_dir = 180
+            expl.expl_spd = 2
+            expl.explosions = 10
+            expl.smoke_steps = 60
+            expl.density = 5
+            repeat (50)
+            {
+                deb = instance_create(2240, (154 + random_range(-64, 64)), oDebris)
+                deb.alarm[0] = (60 + random(20))
+                deb.direction = random_range(150, 210)
+                deb.speed = (1 + random(6))
+            }
+            sfx_play(sndA4Expl)
+            screen_shake(30, 6)
+            instance_create(x, y, oScreenFlash)
+        }
+    }
+    if (global.shorttraptimer > 0)
+        global.shorttraptimer--
+    if (global.emptraptimer > 0)
+    {
+        if ((turning == 0 && morphing == 0 && unmorphing == 0 && walljumping == 0 && (state == STANDING || state == RUNNING || state == DUCKING || (state == JUMPING && vjump == 1))) || (state == GRIP && ((facing == RIGHT && aimdirection != 0) || (facing == LEFT && aimdirection != 1))))
+        {
+            if ((global.emptraptimer % 5) == 1)
+            {
+                empspark = instance_create((oCharacter.x + oCharacter.aspr2x), (oCharacter.y + oCharacter.aspr2y), oFXAnimSpark)
+                empspark.sprite_index = sBatterySpark
+                empspark.image_speed = 1
+                empspark.additive = 1
+                empspark.image_xscale = choose(1, -1)
+                empspark.image_yscale = choose(1, -1)
+                empspark.image_angle = random(360)
+                empspark.depth = -10
+            }
+        }
+        global.emptraptimer--
+    }
+}

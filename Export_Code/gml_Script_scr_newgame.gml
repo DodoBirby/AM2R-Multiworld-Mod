@@ -25,7 +25,6 @@ if (global.gamemode == 2 || global.gamemode == 3 || global.gamemode == 4 || glob
         scr_rand_split_powerups()
         scr_randomizer_split_items()
     }
-    oControl.mod_randomgamebool = 1
 }
 else
     global.gamemode = 1

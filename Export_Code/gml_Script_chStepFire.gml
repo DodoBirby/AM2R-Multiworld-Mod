@@ -1,3 +1,5 @@
+if (global.emptraptimer > 0)
+    exit
 if (kFire && kFirePushedSteps == 0 && nofire == 0 && turning == 0 && morphing == 0 && unmorphing == 0 && walljumping == 0 && monster_drain == 0 && (!instance_exists(oEMPNoise)))
 {
     nofire = 6

@@ -90,3 +90,7 @@ else
 }
 if (x < ((view_xview[0] - 48) - (oControl.widescreen_space / 2)) || x > (((view_xview[0] + view_wview[0]) + 48) + (oControl.widescreen_space / 2)) || y < (view_yview[0] - 48) || y > ((view_yview[0] + view_hview[0]) + 48))
     instance_destroy()
+if (lifetime > 0)
+    lifetime--
+else
+    instance_destroy()

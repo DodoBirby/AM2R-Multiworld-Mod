@@ -25,9 +25,5 @@ if (!skip)
         event_user(3)
     room_goto(itemroom)
 }
-else
-{
-    if (multiItem <= 14)
-        popup_text((text1 + " acquired"))
-    sfx_play(sndMessage)
-}
+else if (multiItem <= 14)
+    popup_text((text1 + " acquired"))
