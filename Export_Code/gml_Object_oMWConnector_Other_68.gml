@@ -114,7 +114,7 @@ switch type_event
             if ((equiptrapcount - global.equiptraps) > 0)
             {
                 receivedanything = 1
-                global.equiptraptimer = (1800 * (equiptrapcount - global.equiptraps))
+                global.equiptraptimer += (1800 * (equiptrapcount - global.equiptraps))
             }
             if ((tosstrapcount - global.tosstraps) > 0)
             {
@@ -127,12 +127,12 @@ switch type_event
             if ((shorttrapcount - global.shorttraps) > 0)
             {
                 receivedanything = 1
-                global.shorttraptimer = (1800 * (shorttrapcount - global.shorttraps))
+                global.shorttraptimer += (1800 * (shorttrapcount - global.shorttraps))
             }
             if ((emptrapcount - global.emptraps) > 0)
             {
                 receivedanything = 1
-                global.emptraptimer = (1800 * (emptrapcount - global.emptraps))
+                global.emptraptimer += (1800 * (emptrapcount - global.emptraps))
             }
             if receivedanything
                 sfx_play(sndMessage)
