@@ -15,7 +15,7 @@ if (frozen == 0)
             instance_destroy()
     }
 }
-if (y > global.waterlevel && global.waterlevel != 0)
+if (y > global.waterlevel && global.waterlevel != 0 && global.waterlevel != 1 && global.floodtraptimer <= 0)
 {
     if (inwater == 0)
     {
@@ -24,7 +24,7 @@ if (y > global.waterlevel && global.waterlevel != 0)
         sfx_play(sndWaterExit)
     }
 }
-else if (inwater == 1)
+else if (inwater == 1 && global.waterlevel != 0 && global.floodtraptimer <= 0)
 {
     instance_create(x, global.waterlevel, oSplash)
     inwater = 0

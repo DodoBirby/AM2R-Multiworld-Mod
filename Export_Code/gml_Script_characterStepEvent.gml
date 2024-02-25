@@ -1,4 +1,4 @@
-var jump_vel, splash, statetimelessthan2, statetimelessthan4, expl, deb, touhoucount, touhoudir, touhouxpos, touhouypos, ziptimer, prevzipx;
+var jump_vel, splash, statetimelessthan2, statetimelessthan4, expl, deb, touhoucount, touhoudir, touhouxpos, touhouypos, ziptimer, prevzipx, liquid, filter;
 if global.enablecontrol
     chStepControl()
 if global.movingobj
@@ -3300,6 +3300,7 @@ if (state != IDLE && state != SAVING && state != SAVINGFX && state != SAVINGSHIP
     global.gametime += 1
     if (global.touhoutraptimer > 0)
     {
+        global.touhoutraptimer--
         if ((global.touhoutraptimer % 70) == 1)
         {
             for (touhoucount = 0; touhoucount < 4; touhoucount++)
@@ -3307,8 +3308,9 @@ if (state != IDLE && state != SAVING && state != SAVINGFX && state != SAVINGSHIP
                 touhoudir = irandom_range(0, 359)
                 touhouxpos = lengthdir_x(80, touhoudir)
                 touhouypos = lengthdir_y(80, touhoudir)
-                instance_create(touhouxpos, touhouypos, oTouhouTrapProj)
+                instance_create((x + touhouxpos), (y + touhouypos), oTouhouTrapProj)
             }
+            sfx_play(sndBombSet)
         }
     }
     if (global.ohkotraptimer > 0)
@@ -3320,7 +3322,22 @@ if (state != IDLE && state != SAVING && state != SAVINGFX && state != SAVINGSHIP
     if (global.floodtraptimer > 0)
     {
         if ((!instance_exists(oWater)) && (!instance_exists(oLavaSurface)))
-            make_liquid(0, room_height, 0, 0, 0, 0, 0)
+        {
+            liquid = instance_create(0, global.waterlevel, oWater)
+            filter = instance_create(0, global.waterlevel, oWaterFXV2)
+            with (filter)
+            {
+                y = (global.waterlevel + oWater.yoffset)
+                y_top = (y - view_yview[0])
+                y_top = clamp(y_top, 0, view_hview[0])
+                y_bottom = view_hview[0]
+            }
+            liquid.wave = 0
+            liquid.wspeed = 0
+            liquid.wheight = 0
+            liquid.depth = -500
+            filter.depth = -500
+        }
         if (global.floodstarttimer > 0)
         {
             global.floodstarttimer--
