@@ -1,4 +1,4 @@
-var jump_vel, splash, statetimelessthan2, statetimelessthan4, expl, deb;
+var jump_vel, splash, statetimelessthan2, statetimelessthan4, expl, deb, touhoucount, touhoudir, touhouxpos, touhouypos, ziptimer, prevzipx;
 if global.enablecontrol
     chStepControl()
 if global.movingobj
@@ -305,16 +305,26 @@ if platformCharacterIs(IN_AIR)
     }
     if walljumping
     {
+        ziptimer = 8000
+        prevzipx = x
         if (facing == LEFT)
         {
-            while (isCollisionRight(1) == 0)
+            while (isCollisionRight(1) == 0 && ziptimer > 0)
+            {
                 x += 1
+                ziptimer -= 1
+            }
         }
         if (facing == RIGHT)
         {
-            while (isCollisionLeft(1) == 0)
+            while (isCollisionLeft(1) == 0 && ziptimer > 0)
+            {
                 x -= 1
+                ziptimer -= 1
+            }
         }
+        if (ziptimer == 0)
+            x = prevzipx
     }
     if (kJump && kJumpPushedSteps == 0 && vjump == 1 && aimdirection != 6 && aimdirection != 7 && novjump == 0 && state != AIRBALL && aimlock == 0 && monster_drain == 0)
     {
@@ -3288,19 +3298,37 @@ statetime += 1
 if (state != IDLE && state != SAVING && state != SAVINGFX && state != SAVINGSHIP && state != SAVINGSHIPFX)
 {
     global.gametime += 1
-    if (global.equiptraptimer > 0)
+    if (global.touhoutraptimer > 0)
     {
-        global.equiptraptimer--
-        global.currentsuit = 0
-        global.morphball = 0
-        global.jumpball = 0
-        global.powergrip = 0
-        global.spacejump = 0
-        global.screwattack = 0
-        global.hijump = 0
-        global.spiderball = 0
-        global.speedbooster = 0
-        global.bomb = 0
+        if ((global.touhoutraptimer % 70) == 1)
+        {
+            for (touhoucount = 0; touhoucount < 4; touhoucount++)
+            {
+                touhoudir = irandom_range(0, 359)
+                touhouxpos = lengthdir_x(80, touhoudir)
+                touhouypos = lengthdir_y(80, touhoudir)
+                instance_create(touhouxpos, touhouypos, oTouhouTrapProj)
+            }
+        }
+    }
+    if (global.ohkotraptimer > 0)
+    {
+        global.ohkotraptimer--
+        if (global.playerhealth > 1)
+            global.playerhealth = (global.playerhealth / 2)
+    }
+    if (global.floodtraptimer > 0)
+    {
+        if ((!instance_exists(oWater)) && (!instance_exists(oLavaSurface)))
+            make_liquid(0, room_height, 0, 0, 0, 0, 0)
+        if (global.floodstarttimer > 0)
+        {
+            global.floodstarttimer--
+            global.waterlevel = (1 + ((room_height * global.floodstarttimer) / 180))
+        }
+        else
+            global.waterlevel = 1
+        global.floodtraptimer--
     }
     if (global.tosstraptimer > 0)
     {
@@ -3320,7 +3348,7 @@ if (state != IDLE && state != SAVING && state != SAVINGFX && state != SAVINGSHIP
             expl.density = 5
             repeat (50)
             {
-                deb = instance_create(2240, (154 + random_range(-64, 64)), oDebris)
+                deb = instance_create(x, (y + random_range(-64, 64)), oDebris)
                 deb.alarm[0] = (60 + random(20))
                 deb.direction = random_range(150, 210)
                 deb.speed = (1 + random(6))

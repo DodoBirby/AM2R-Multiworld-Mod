@@ -17,10 +17,12 @@ ds_list_add(list, global.mapmarker)
 ds_list_add(list, global.mapmarkerx)
 ds_list_add(list, global.mapmarkery)
 ds_list_add(list, global.seedreceived)
-ds_list_add(list, global.equiptraps)
+ds_list_add(list, global.floodtraps)
 ds_list_add(list, global.tosstraps)
 ds_list_add(list, global.shorttraps)
 ds_list_add(list, global.emptraps)
+ds_list_add(list, global.touhoutraps)
+ds_list_add(list, global.ohkotraps)
 i = 0
 repeat (36)
 {

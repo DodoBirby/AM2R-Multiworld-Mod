@@ -157,10 +157,9 @@ switch multiItem
         skip = 1
         break
     case 20:
-    case 21:
-    case 22:
-    case 23:
-    case 24:
+        sprite_index = sItemMW
+        break
+    default:
         sprite_index = sItemMW
         break
 }

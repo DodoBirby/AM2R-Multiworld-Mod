@@ -1,4 +1,4 @@
-var type_event, ip, _buffer, receivedString, result, newline, itemMap, itemList, msg, returnMap, command, locationsMap, location, locationset, checkList, i, itemsList, missilecount, supercount, pbcount, etankcount, item, prevtanks, file, receivedanything, equiptrapcount, tosstrapcount, shorttrapcount, emptrapcount;
+var type_event, ip, _buffer, receivedString, result, newline, itemMap, itemList, msg, returnMap, command, locationsMap, location, locationset, checkList, i, itemsList, missilecount, supercount, pbcount, etankcount, item, prevtanks, file, receivedanything, tosstrapcount, shorttrapcount, emptrapcount, ohkotrapcount, touhoutrapcount, floodtrapcount;
 type_event = ds_map_find_value(async_load, "type")
 ip = ds_map_find_value(async_load, "ip")
 switch type_event
@@ -36,10 +36,12 @@ switch type_event
             supercount = 0
             pbcount = 0
             etankcount = 0
-            equiptrapcount = 0
+            floodtrapcount = 0
             tosstrapcount = 0
             shorttrapcount = 0
             emptrapcount = 0
+            ohkotrapcount = 0
+            touhoutrapcount = 0
             prevtanks = global.dnatanks
             global.dnatanks = 0
             itemsList = ds_map_find_value(itemMap, "items")
@@ -70,13 +72,17 @@ switch type_event
                 else if (item == 19)
                     global.dnatanks++
                 else if (item == 21)
-                    equiptrapcount++
+                    floodtrapcount++
                 else if (item == 22)
                     tosstrapcount++
                 else if (item == 23)
                     shorttrapcount++
                 else if (item == 24)
                     emptrapcount++
+                else if (item == 25)
+                    ohkotrapcount++
+                else if (item == 26)
+                    touhoutrapcount++
             }
             if (prevtanks != global.dnatanks)
             {
@@ -94,36 +100,48 @@ switch type_event
             {
                 receivedanything = 1
                 global.mtanks = missilecount
-                global.maxmissiles = (oControl.mod_Mstartingcount + (global.mtanks * 5))
+                if (global.difficulty < 2)
+                    global.maxmissiles = (oControl.mod_Mstartingcount + (global.mtanks * 5))
+                else
+                    global.maxmissiles = (oControl.mod_Mstartingcount + (global.mtanks * 2))
                 global.missiles = global.maxmissiles
             }
             if (supercount != global.stanks)
             {
                 receivedanything = 1
                 global.stanks = supercount
-                global.maxsmissiles = (global.stanks * 2)
+                if (global.difficulty < 2)
+                    global.maxsmissiles = (global.stanks * 2)
+                else
+                    global.maxsmissiles = global.stanks
                 global.smissiles = global.maxsmissiles
             }
             if (pbcount != global.ptanks)
             {
                 receivedanything = 1
                 global.ptanks = pbcount
-                global.maxpbombs = (global.ptanks * 2)
+                if (global.difficulty < 2)
+                    global.maxpbombs = (global.ptanks * 2)
+                else
+                    global.maxpbombs = global.ptanks
                 global.pbombs = global.maxpbombs
             }
-            if ((equiptrapcount - global.equiptraps) > 0)
+            if ((floodtrapcount - global.floodtraps) > 0)
             {
-                receivedanything = 1
-                global.equiptraptimer += (1800 * (equiptrapcount - global.equiptraps))
-                popup_text("Suit Malfunction")
+                if (global.floodtraptimer <= 0)
+                    global.floodstarttimer = 180
+                global.floodtraptimer += (1800 * (floodtrapcount - global.floodtraps))
+                screen_shake(30, 6)
+                sfx_play(sndRobotExpl)
+                popup_text("Pipe Burst Detected")
             }
             if ((tosstrapcount - global.tosstraps) > 0)
             {
                 popup_text("TOSS Inbound")
                 receivedanything = 1
-                global.tossforce += ((tosstrapcount - global.tosstraps) * 10)
+                global.tossforce += ((tosstrapcount - global.tosstraps) * 30)
                 for (i = 0; i < (tosstrapcount - global.tosstraps); i++)
-                    global.tosstraptimer += irandom_range(600, 2400)
+                    global.tosstraptimer += irandom_range(120, 2400)
             }
             if ((shorttrapcount - global.shorttraps) > 0)
             {
@@ -137,7 +155,21 @@ switch type_event
                 global.emptraptimer += (1800 * (emptrapcount - global.emptraps))
                 popup_text("Weapon Systems Disabled")
             }
-            global.equiptraps = equiptrapcount
+            if ((ohkotrapcount - global.ohkotraps) > 0)
+            {
+                receivedanything = 1
+                global.ohkotraptimer += (1800 * (ohkotrapcount - global.ohkotraps))
+                popup_text("Energy Shield Update Installing")
+            }
+            if ((touhoutrapcount - global.touhoutraps) > 0)
+            {
+                receivedanything = 1
+                global.touhoutraptimer += (900 * (touhoutrapcount - global.touhoutraps))
+                popup_text("Bullet Hell Begin")
+            }
+            global.touhoutraps = touhoutrapcount
+            global.ohkotraps = ohkotrapcount
+            global.floodtraps = floodtrapcount
             global.tosstraps = tosstrapcount
             global.shorttraps = shorttrapcount
             global.emptraps = emptrapcount
