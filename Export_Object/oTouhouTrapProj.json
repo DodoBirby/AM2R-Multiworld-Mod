@@ -3,7 +3,7 @@
   "sprite": "sRobotMineProj",
   "visible": true,
   "solid": false,
-  "depth": 0,
+  "depth": -900,
   "persistent": false,
   "parent_id": null,
   "texture_mask_id": null,

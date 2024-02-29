@@ -3301,14 +3301,18 @@ if (state != IDLE && state != SAVING && state != SAVINGFX && state != SAVINGSHIP
     if (global.touhoutraptimer > 0)
     {
         global.touhoutraptimer--
-        if ((global.touhoutraptimer % 70) == 1)
+        if ((global.touhoutraptimer % 120) == 1)
         {
             for (touhoucount = 0; touhoucount < 4; touhoucount++)
             {
                 touhoudir = irandom_range(0, 359)
                 touhouxpos = lengthdir_x(80, touhoudir)
                 touhouypos = lengthdir_y(80, touhoudir)
-                instance_create((x + touhouxpos), (y + touhouypos), oTouhouTrapProj)
+                with (instance_create((x + touhouxpos), (y + touhouypos), oTouhouTrapProj))
+                {
+                    orbitdir = touhoudir
+                    orbitspeed = 1
+                }
             }
             sfx_play(sndBombSet)
         }
@@ -3318,6 +3322,11 @@ if (state != IDLE && state != SAVING && state != SAVINGFX && state != SAVINGSHIP
         global.ohkotraptimer--
         if (global.playerhealth > 1)
             global.playerhealth = (global.playerhealth / 2)
+        if (global.ohkotraptimer == 0)
+        {
+            global.playerhealth = global.maxhealth
+            popup_text("Update Installed")
+        }
     }
     if (global.floodtraptimer > 0)
     {
